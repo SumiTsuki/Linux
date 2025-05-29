@@ -64,6 +64,7 @@
       "default": ["󰖀","󰕾",""]
     },
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "~/.config/waybar/shell/wireplumber-switch.sh",
     "scroll-step": 1
   },
   "battery": {
