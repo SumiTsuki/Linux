@@ -1,0 +1,114 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": "",
+  "spacing": 0,
+  "modules-left": [
+    "custom/logo",
+    "niri/workspaces",
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "tray",
+    "cpu",
+    "memory",
+    "network",
+    "backlight",
+    "wireplumber",
+    "battery",
+    "custom/power"
+  ],
+  "custom/logo": {
+    "format": "    ",
+    "on-click": ""
+  },
+  "niri/workspaces": {
+    "format": "{name}",
+    "on-click": "activate"
+  },
+  "clock": {
+    "format": "  {:%I:%M %p}",
+    "format-alt": "  {:%a, %d %b %Y}",
+    "timezone": "Asia/Shanghai",
+    "tooltip-format": "{calendar}"
+  },
+  "tray": {
+    "spacing": 10
+  },
+  "cpu": {
+    "interval": 10,
+    "format": " {avg_frequency}%",
+    "tooltip-format": "CPU Usage: {usage}%"
+  },
+  "memory": {
+    "format": " {percentage}%",
+    "tooltip-format": "{used:0.1f}G/{total:0.1f}G"
+  },
+  "network": {
+    "format-wifi" : "{icon}",
+    "format-icons": ["󰤯","󰤟","󰤢","󰤥","󰤨"],
+    "format-ethernet": "󰀂",
+    "format-disconnected" : "󰖪",
+	  "tooltip-format-wifi": "{icon} {essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-ethernet": "󰀂  {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+	  "tooltip-format-disconnected": "Disconnected",
+	  "interval": 5
+  },
+  "backlight": {
+    "format": "{icon} {percent}%",
+    "format-icons": ["󰃝", "󰃟", "󰃞"],
+    "scroll-step": 1
+  },
+  "wireplumber": {
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "󰂰",
+    "format-muted": "󰝟",
+    "format-icons": {
+      "headphone": "",
+      "default": ["󰖀","󰕾",""]
+    },
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "~/.config/waybar/wireplumber-switch.sh",
+    "scroll-step": 1
+  },
+  "battery": {
+    "format": "{icon} {capacity}%",
+    "format-icons": {
+      "charging": [
+        "󰢜",
+        "󰂆",
+        "󰂇",
+        "󰂈",
+        "󰢝",
+        "󰂉",
+        "󰢞",
+        "󰂊",
+        "󰂋",
+        "󰂅"
+      ],
+      "default": [
+        "󰁺",
+        "󰁻",
+        "󰁼",
+        "󰁽",
+        "󰁾",
+        "󰁿",
+        "󰂀",
+        "󰂁",
+        "󰂂",
+        "󰁹"
+      ]
+    },
+    "format-full": "Charged ",
+    "states": {
+      "warning": 20,
+      "critical": 10
+    }
+  },
+  "custom/power": {
+    "format": "󰤆",
+    "on-click": ""
+  }
+}

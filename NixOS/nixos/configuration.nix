@@ -1,53 +1,48 @@
-{ inputs, outputs, lib, config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
+
 {
-  imports =[
-      ./hardware-configuration.nix
-  ];
+	imports =
+		[
+			./hardware-configuration.nix
+		];
 
-  nixpkgs = {
-    overlays = [
-      outputs.overlays.additions
-      outputs.overlays.modifications
-      outputs.overlays.unstable-packages
-    ];
-    config = {
-      allowUnfree = true;
-    };
-  };
-
-  nix = let
-    flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
-  in {
-    settings = {
-      experimental-features = "nix-command flakes";
-      flake-registry = "";
-      nix-path = config.nix.nixPath;
-    };
-    channel.enable = false;
-    registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
-    nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
-  };
-  
-  networking.hostName = "nixos";
-
-  users.users = {
-    NixOS = {
-      initialPassword = "";
-      isNormalUser = true;
-      openssh.authorizedKeys.keys = [
-      ];
-      extraGroups = [ "wheel" ];
-    };
-  };
-
-  services.openssh = {
-    enable = true;
-    settings = {
-      PermitRootLogin = "no";
-      PasswordAuthentication = false;
-    };
-  };
-
-  system.stateVersion = "24.05";
+	boot.loader.systemd-boot.enable = true;
+	boot.loader.efi.canTouchEfiVariables = true;
+	networking.hostName = "NixOS";
+	networking.networkmanager.enable = true;
+	time.timeZone = "Asia/Shanghai";
+	i18n.defaultLocale = "en_US.UTF-8";
+	console = {
+		font = "Lat2-Terminus16";
+		keyMap = "us";
+	};
+	services.pipewire = {
+		enable = true;
+		pulse.enable = true;
+	};
+	users.users.Luna = {
+		isNormalUser = true;
+		extraGroups = [ "wheel" ];
+	};
+	environment.systemPackages = with pkgs; [
+		vim
+		git
+		wget
+	];
+	programs.neovim = {
+		enable = true;
+		configure = {
+			customRC = ''
+				set tabstop=4
+				set shiftwidth=4
+				set noexpandtab
+			'';
+		};
+	};
+	services.xserver.enable = false;
+	services.dbus.enable = true;
+	hardware.graphics.enable = true;
+	nix.settings.experimental-features = [ "nix-command" "flakes" ];
+	system.stateVersion = "25.11";
 }
 
