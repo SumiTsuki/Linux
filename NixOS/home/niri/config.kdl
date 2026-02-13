@@ -73,7 +73,7 @@ window-rule {
 binds {
 	Mod+T hotkey-overlay-title="Open a Terminal: kitty" { spawn-sh "kitty -e zsh"; }
 	Mod+D hotkey-overlay-title="Run an Application: wofi" { spawn-sh "pkill wofi || wofi --show drun"; }
-	Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn-sh "swaylock"; }
+	Super+Alt+L hotkey-overlay-title="Lock the Screen: wlogout" { spawn-sh "pkill wlogout || wlogout --buttons-per-row 4"; }
 
 	Mod+O repeat=false { toggle-overview; }
 	Mod+Q repeat=false { close-window; }

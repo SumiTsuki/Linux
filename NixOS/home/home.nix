@@ -7,7 +7,6 @@
 		fastfetch
 		yazi
 		git
-		gtk4
 	];
 	imports = [
 		./emacs
@@ -17,7 +16,8 @@
 		./zsh
 		./fcitx5
 		./swaybg
-		./swaylock
+		./wlogout
+		./hyprlock
 		./waybar
 		./wofi
 		./fonts

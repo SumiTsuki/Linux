@@ -21,7 +21,7 @@
     "custom/power"
   ],
   "custom/logo": {
-    "format": "    ",
+    "format": "   ",
     "on-click": ""
   },
   "niri/workspaces": {
