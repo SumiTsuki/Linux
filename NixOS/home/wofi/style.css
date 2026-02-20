@@ -1,8 +1,8 @@
 window {
   margin: 0px;
-  border: 1px solid rgba(136, 192, 208, 0.3);
-  border-radius: 7px;
-  background-color: rgba(24, 24, 37, 0.3);
+  border: 1px solid rgba(136, 192, 208, 0.7);
+  bonrder-radius: 7px;
+  background-color: rgba(24, 24, 37, 0.7);
 }
 
 #outer-box {
@@ -23,7 +23,7 @@ window {
   padding: 3px;
   border: none;
   color: #d8dee9;
-  background-color: rgba(24, 24, 37, 0.6);
+  background-color: rgba(24, 24, 37, 0.7);
 }
 
 #scroll {
@@ -44,6 +44,6 @@ window {
 }
 
 #entry:selected {
-  background-color: rgba(24, 24, 37, 0.6);
+  background-color: rgba(24, 24, 37, 0.7);
   border: none;
 }

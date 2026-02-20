@@ -2,6 +2,13 @@
 
 {
 	home.packages = with pkgs; [
-		emacs
+		emacs-pgtk
+		nil
+		clang-tools
+		pyright
 	];
+	home.file.".config/emacs" = {
+		source = ./emacs;
+		recursive = true;
+	};
 }
