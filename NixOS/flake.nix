@@ -10,12 +10,12 @@
 		nixosConfigurations = {
 			NixOS = nixpkgs.lib.nixosSystem {
 				modules = [
-					./nixos/configuration.nix
+					./hosts/VirtualMachine.nix
 					home-manager.nixosModules.home-manager
 					{
 						home-manager.useGlobalPkgs = true;
 						home-manager.useUserPackages = true;
-						home-manager.users.Luna = import ./home/home.nix;
+						home-manager.users.Luna = import ./home-manager/Luna.nix;
 					}
 				];
 			};
