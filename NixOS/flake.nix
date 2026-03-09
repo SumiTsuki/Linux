@@ -10,7 +10,7 @@
 		nixosConfigurations = {
 			NixOS = nixpkgs.lib.nixosSystem {
 				modules = [
-					./hosts/VirtualMachine.nix
+					./hosts/VirtualMachine/VirtualMachine.nix
 					home-manager.nixosModules.home-manager
 					{
 						home-manager.useGlobalPkgs = true;

@@ -35,8 +35,4 @@
 
 (use-package nerd-icons)
 
-(use-package good-scroll
-  :if (display-graphic-p)
-  :init (good-scroll-mode 1))
-
 (provide 'init-ui)

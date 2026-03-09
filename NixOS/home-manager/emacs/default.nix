@@ -3,7 +3,7 @@
 {
 	home.packages = with pkgs; [
 		emacs-pgtk
-		nil
+		nixd
 		clang-tools
 		pyright
 	];
